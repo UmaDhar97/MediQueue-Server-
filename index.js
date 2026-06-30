@@ -90,25 +90,23 @@ async function run() {
       res.send({ token });
     });
 
-    app.get("/myTutors", verifyToken, async (req, res) => {
-      const email = req.query.email;
-      const result = await tutorCollection.find({ email }).toArray();
-      res.send(result);
-    });
+    app.get("/tutors", async (req, res) => {
+  const result = await tutorCollection.find().toArray();
+  res.send(result);
+});
 
-    app.get("/homeTutors", async (req, res) => {
-      const result = await tutorCollection.find().limit(6).toArray();
-      res.send(result);
-    });
+app.get("/homeTutors", async (req, res) => {
+  const result = await tutorCollection.find().limit(6).toArray();
+  res.send(result);
+});
 
-    app.get("/tutors/:id", async (req, res) => {
-      const id = req.params.id;
-      const result = await tutorCollection.findOne({
-        _id: new ObjectId(id),
-      });
-      res.send(result);
-    });
-
+app.get("/tutors/:id", async (req, res) => {
+  const id = req.params.id;
+  const result = await tutorCollection.findOne({
+    _id: new ObjectId(id),
+  });
+  res.send(result);
+});
     app.post("/tutors", verifyToken, async (req, res) => {
       const tutor = req.body;
       const result = await tutorCollection.insertOne(tutor);
