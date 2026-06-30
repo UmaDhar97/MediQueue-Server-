@@ -20,9 +20,12 @@ const port = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
+  origin: [
+    "http://localhost:5173",
+    "https://mediqueue-client-xmdv-n2b4zsy03-umadhar97s-projects.vercel.app",
+  ],
+  credentials: true,
+})
 );
 
 app.use(express.json());
