@@ -13,6 +13,7 @@ Client Repository: https://github.com/UmaDhar97/mediqueue-client
 🔍 Tutor search by name using MongoDB $regex (case-insensitive) and date-range filtering with $gte / $lte.
 
 📅 Automatic slot management — booking a session decreases totalSlot by 1, and blocks bookings once slots run out or before the tutor's session start date.
+
 🧑‍🏫 Full CRUD for tutors (Create, Read, Update, Delete) scoped to the logged-in user for private operations.
 
 📖 Booking cancellation via PATCH, updating status to "cancelled" instead of deleting the record.
